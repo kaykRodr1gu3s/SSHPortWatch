@@ -12,3 +12,8 @@ class Server:
     @property
     def schedule_task(self):
         self.client.exec_command(f"nmap -p- {os.getenv("server_ip")} >> nmap.txt")
+
+    @property
+    def download_file(self):
+        sftp = self.client.open_sftp()
+        sftp.get(os.getenv("server_path"), "nmap.txt")

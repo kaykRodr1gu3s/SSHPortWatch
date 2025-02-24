@@ -1,6 +1,7 @@
 import paramiko
 import os
 from dotenv import load_dotenv
+import pandas as pd
 
 class Server:
     def __init__(self):
@@ -16,4 +17,8 @@ class Server:
     @property
     def download_file(self):
         sftp = self.client.open_sftp()
-        sftp.get(os.getenv("server_path"), "nmap.txt")
+        sftp.get("nmap.txt", "nmap.txt")
+
+    def main(self):
+        self.schedule_task
+        self.download_file
